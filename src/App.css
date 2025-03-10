@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Genel Sayfa Stili */
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Ana App Alanı */
+.app {
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Kartın Tasarımı */
+.card {
+  background: #ffffff;
+  padding: 50px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  margin: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Kart Üzerine Gelindiğinde Etkileşim */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Başlık */
+.heading {
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 12px;
+  font-weight: 600;
+}
+
+/* Başlık Altındaki Çizgi */
+.heading::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: #4caf50;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Buton Tasarımı */
+.button {
+  background-color: #4caf50;
   color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+/* Butona Basıldığında Efekt */
+.button:active {
+  transform: scale(0.95);
 }
 
-@keyframes App-logo-spin {
+/* Buton Hover Animasyonu */
+.button:hover {
+  background-color: #45a049;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Buton İçindeki Yazıya Animasyon */
+.button span {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  position: relative;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* Fade In Animasyonu */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Yazının Kayarak Gelmesi */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
